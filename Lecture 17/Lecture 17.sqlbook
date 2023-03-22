@@ -99,9 +99,9 @@ Try it yourself!
 -- Select a new driver id (needs to be unique)
 -- Make sure to deparate arguments by a semicolon!
 
+INSERT INTO drivers VALUES (555,'Rohan Patel','American',50);
 
-
-
+INSERT INTO drivers VALUES (151,'Isaac Gaz','Armenian',150);
 -- SQLBook: Markup
 # <span style="color:darkblue"> II. Dataset Operations </span>
 
@@ -132,7 +132,7 @@ WHERE nationality = 'German';
 
 -- Evalute OR conditions
 SELECT * FROM drivers
-WHERE (nationality = 'German') OR (nationality = 'British');
+WHERE (nationality = 'American') OR (nationality = 'Armenian');
 
 -- Evaluate AND conditions
 SELECT * FROM drivers
@@ -147,7 +147,8 @@ Aggregate
 -- such as SUM() or AVG() 
 -- The AS is an alias which assigns a name to the aggregate statistic
 
-SELECT COUNT(*) AS num_rows,
+SELECT SUM(victories) AS sum_victories,
+       COUNT(*) AS num_rows,
        SUM(victories) AS sum_victories,
        AVG(victories) AS mean_victories,
        MIN(victories) AS min_victories,
@@ -188,8 +189,8 @@ with more than 60 victories
 -- SQLBook: Code
 -- Write your own code!
 
-
-
+SELECT nationality, driver_id FROM drivers
+WHERE victories > 60;
 
 
 -- SQLBook: Markup
